@@ -4,6 +4,7 @@ import {Posts} from './components/Posts/Posts.tsx';
 
 
 function App() {
+  // Я Вита крикуха
   return <div>
     <Header/>
     <Posts/>
