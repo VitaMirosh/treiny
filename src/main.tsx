@@ -9,6 +9,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Theme appearance={'light'}>
       <App />
+
     </Theme>
 
   </StrictMode>,
