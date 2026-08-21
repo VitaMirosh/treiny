@@ -10,7 +10,7 @@ type Props = {
   modalTitle: string
 }
 
-
+//use Radix
 export const ModalRadix = ({modalTitle, onClose, children, open}:Props) => (
   <Dialog.Root open={open} onOpenChange={onClose}>
     <Dialog.Portal>
