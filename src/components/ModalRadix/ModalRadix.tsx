@@ -1,27 +1,30 @@
 import {Cross2Icon} from '@radix-ui/react-icons';
 import s from './ModaulRudix.module.css';
 import * as Dialog from '@radix-ui/react-dialog';
-import type {ReactNode} from 'react';
+import type {ComponentPropsWithoutRef} from 'react';
+import clsx from 'clsx';
+
+type ModalSize = 'lg' | 'md' | 'sm'
 
 type Props = {
   open: boolean
   onClose: () => void
-  children: ReactNode
+  size?: ModalSize
   modalTitle: string
-}
+} & ComponentPropsWithoutRef<'div'>
 
 //use Radix
-export const ModalRadix = ({modalTitle, onClose, children, open}:Props) => (
-  <Dialog.Root open={open} onOpenChange={onClose}>
+export const ModalRadix = ({modalTitle,children, onClose, size = 'md', open,className, ...rest}: Props) => (
+  <Dialog.Root open={open} onOpenChange={onClose} {...rest}>
     <Dialog.Portal>
-      <Dialog.Overlay className={s.Overlay} />
-      <Dialog.Content className={s.Content}>
+      <Dialog.Overlay className={s.Overlay}/>
+      <Dialog.Content className={clsx(s.Content, s[size],className)}>
         <Dialog.Title className={s.Title}>{modalTitle}</Dialog.Title>
-        <hr />
+        <hr/>
         {children}
         <Dialog.Close asChild>
           <button className={s.IconButton} aria-label="Close">
-            <Cross2Icon />
+            <Cross2Icon/>
           </button>
         </Dialog.Close>
       </Dialog.Content>
