@@ -9,7 +9,7 @@ export const Posts = () => {
     { id: 3, title: "Post 3" },
   ])
 
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(true)
 
   const openModalHandler = () => {
     setShowModal(true)
